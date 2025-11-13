@@ -7,23 +7,25 @@ Il a pour but de mieux comprendre la structure et le fonctionnement d’un modè
 
 ## 📁 Structure du projet
 
-│ .htaccess # Réécriture d’URL pour un routage propre
-│ index.php # Point d’entrée principal du site
-│ README.md
+```text
+D:.
+│   .htaccess               # Réécriture d’URL pour un routage propre
+│   index.php               # Point d’entrée principal du site
+│   README.md
 │
 ├───app
-│ Controller.php # Classe abstraite de base pour les contrôleurs
-│ Model.php # Classe abstraite de base pour les modèles
+│       Controller.php      # Classe abstraite de base pour les contrôleurs
+│       Model.php           # Classe abstraite de base pour les modèles
 │
 ├───controllers
-│ MainController.php # Contrôleur principal (hérite de Controller)
+│       MainController.php  # Contrôleur principal (hérite de Controller)
 │
 ├───public
-│ (CSS, JS, images, etc.)
+│       (CSS, JS, images, etc.)
 │
 └───views
-default.php # Vue par défaut (layout général)
-Main.php # Vue associée à MainController
+        default.php         # Vue par défaut (layout général)
+        Main.php            # Vue associée à MainController
 
 ---
 
