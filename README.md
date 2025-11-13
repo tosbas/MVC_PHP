@@ -27,6 +27,8 @@ D:.
         default.php         # Vue par défaut (layout général)
         Main.php            # Vue associée à MainController
 
+```text
+
 ---
 
 ## ⚙️ Lancer le projet
