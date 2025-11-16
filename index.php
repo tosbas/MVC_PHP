@@ -10,7 +10,7 @@ $params  = array_values(array_filter(explode('/', $request)));
 
 // --- ROUTAGE ---
 if (!empty($params)) {
-    $controllerName = ucfirst($params[0]) . 'Controller';
+    $controllerName = ucfirst($params[0]);
     $action = isset($params[1]) ? $params[1] : 'index';
 
     $controllerPath = ROOT . 'controllers/' . $controllerName . '.php';
@@ -39,6 +39,6 @@ if (!empty($params)) {
     // Si aucune route n’est précisée → page d’accueil
     require_once(ROOT . 'controllers/MainController.php');
 
-    $controller = new MainController();
+    $controller = new Main();
     $controller->main();
 }

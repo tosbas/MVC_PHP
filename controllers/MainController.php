@@ -2,10 +2,12 @@
 
 use App\Controller;
 
-class MainController extends Controller
+class Main extends Controller
 {
     public function main()
     {
-        $this->render('Main', 'Accueil', []);
+
+        $this->loadModel('User');
+        $this->render('index', 'Accueil', []);
     }
 }
