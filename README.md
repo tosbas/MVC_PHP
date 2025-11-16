@@ -8,7 +8,7 @@ Il a pour but de mieux comprendre la structure et le fonctionnement d’un modè
 ## 📁 Structure du projet
 
 ```text
-D:.
+
 │   .htaccess               # Réécriture d’URL pour un routage propre
 │   index.php               # Point d’entrée principal du site
 │   README.md
@@ -18,14 +18,18 @@ D:.
 │       Model.php           # Classe abstraite de base pour les modèles
 │
 ├───controllers
-│       MainController.php  # Contrôleur principal (hérite de Controller)
+│       MainController.php  # Contrôleur de l'accueil (hérite de Controller)
 │
 ├───public
 │       (CSS, JS, images, etc.)
 │
 └───views
         default.php         # Vue par défaut (layout général)
-        Main.php            # Vue associée à MainController
+        |
+        ├───Main
+        |        index.php  # Vue associée à MainController
+        
+        
 ```
 
 ---
