@@ -9,26 +9,28 @@ Il a pour but de mieux comprendre la structure et le fonctionnement d’un modè
 
 ```text
 
-│   .htaccess               # Réécriture d’URL pour un routage propre
-│   index.php               # Point d’entrée principal du site
-│   README.md
+├── .gitignore              # Fichiers à ignorer par Git (ex: config.php)
+├── .htaccess               # Réécriture d’URL pour un routage propre
+├── config.php              # Configuration (identifiants DB), gitignored
+├── index.php               # Point d’entrée principal du site
+├── README.md               # Documentation
 │
-├───app
-│       Controller.php      # Classe abstraite de base pour les contrôleurs
-│       Model.php           # Classe abstraite de base pour les modèles
+├── app
+│   ├── Controller.php      # Classe abstraite de base pour les contrôleurs
+│   └── Model.php           # Classe abstraite de base pour les modèles
 │
-├───controllers
-│       MainController.php  # Contrôleur de l'accueil (hérite de Controller)
+├── controllers
+│   └── MainController.php  # Contrôleur de l’accueil (hérite de Controller)
 │
-├───public
-│       (CSS, JS, images, etc.)
+├── models
+│   └── User.php            # Modèle utilisateur (hérite de Model)
 │
-└───views
-        default.php         # Vue par défaut (layout général)
-        |
-        ├───Main
-        |        index.php  # Vue associée à MainController
-        
+├── public                  # CSS, JS, images, etc.
+│
+└── views
+    ├── default.php         # Layout général / template par défaut
+    └── Main
+        └── index.php       # Vue associée à MainController
         
 ```
 
