@@ -4,10 +4,18 @@ use App\Controller;
 
 class Main extends Controller
 {
+
+    /**
+     * @var User
+     */
+    public $User;
+
     public function main()
     {
 
         $this->loadModel('User');
-        $this->render('index', 'Accueil', []);
+        $users = $this->User->getAll();
+
+        $this->render('index', 'Accueil', compact('users'));
     }
 }
