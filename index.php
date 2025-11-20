@@ -1,6 +1,7 @@
 <?php
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
+require_once(ROOT . 'config.php');
 require_once(ROOT . 'App/Model.php');
 require_once(ROOT . 'App/Controller.php');
 

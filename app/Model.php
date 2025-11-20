@@ -2,21 +2,20 @@
 
 namespace App;
 
-use Exception;
 use PDO;
+use PDOException;
 
 abstract class Model
 {
 
-    private const string DB_USER = 'root';
-    private const string DB_NAME = 'test';
-    private const string DB_HOST = 'localhost';
-    private const string DB_PASSWORD = '1234';
+    private string $dbUser = DB_USER;
+    private string $dbName = DB_NAME;
+    private string $dbHost = DB_HOST;
+    private string $dbPassword = DB_PASSWORD;
 
-    protected $connection;
-
-    protected $table;
-    protected $id;
+    protected ?PDO $connection = null;
+    protected string $table;
+    protected ?int $id = null;
 
     /**
      * Initialise la connexion PDO à la base de données et la stocke dans $this->connection.
@@ -25,15 +24,19 @@ abstract class Model
      *
      * @throws PDOException Si la connexion échoue.
      */
-    public function getConnection()
+    public function getConnection(): void
     {
         $this->connection = null;
 
         try {
-            $this->connection = new PDO('mysql:dbname=' . self::DB_NAME . ';host=' . self::DB_HOST, self::DB_USER, self::DB_PASSWORD);
+            $this->connection = new PDO(
+                'mysql:dbname=' . $this->dbName . ';host=' . $this->dbHost,
+                $this->dbUser,
+                $this->dbPassword
+            );
             $this->connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            echo "⚠️ Une erreur est survenue :" . $e->getMessage();
+        } catch (PDOException $e) {
+            throw new PDOException("⚠️ Une erreur est survenue : " . $e->getMessage());
         }
     }
 
@@ -42,7 +45,7 @@ abstract class Model
      *
      * @return array Liste des enregistrements sous forme de tableau.
      */
-    public function getAll()
+    public function getAll(): array
     {
         $sql = "SELECT * FROM {$this->table}";
         $query = $this->connection->prepare($sql);
