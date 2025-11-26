@@ -24,14 +24,21 @@ abstract class Controller
 
         $this->title = $title;
 
+        $fullClass = get_class($this);
+        $classParts = explode('\\', $fullClass);
+        $className = end($classParts);
+
+        $viewFolder = strtolower(str_replace('Controller', '', $className));
+
         ob_start();
 
-        require_once(ROOT . 'views/' . str_replace('Controller', '', strtolower(get_class($this))) . '/' . $view . '.php');
+        require_once ROOT . 'views/' . $viewFolder . '/' . $view . '.php';
 
         $content = ob_get_clean();
 
-        require_once(ROOT . '/views/default.php');
+        require_once ROOT . 'views/default.php';
     }
+
 
     /**
      * Chargement d'un model
