@@ -7,5 +7,5 @@ function isLogged(): bool
 
 function welcomMessage(): string
 {
-    return (($_SESSION['role'] = 'admin') ? 'Admin' : '')  . ' ' . $_SESSION['pseudo'];
+    return (($_SESSION['role'] == 'admin') ? 'Admin' : '')  . ' ' . $_SESSION['pseudo'];
 }
